@@ -15,10 +15,20 @@
           v-model="choosen"
         ></radio-button>
 
+        <radio-button name="radio-button-group" value="Radio 2" v-model="choosen">
+          <template slot:default slot-scope="{ isCurrentChecked }">
+            <input
+              type="text"
+              :disabled="!isCurrentChecked"
+              :placeholder="isCurrentChecked ? 'Is Choosen' : 'Disabled'"
+            />
+          </template>
+        </radio-button>
+
         <radio-button
           name="radio-button-group"
-          value="Radio 2"
-          label="Label Radio 2"
+          value="Radio 3"
+          label="Label Radio 3"
           v-model="choosen"
         ></radio-button>
       </div>

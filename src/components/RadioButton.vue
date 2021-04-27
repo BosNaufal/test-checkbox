@@ -22,7 +22,10 @@
         />
       </div>
     </div>
-    <span>{{ label }}</span>
+    <div class="RadioButton-content">
+      <slot :isCurrentChecked="isChecked"></slot>
+      <span class="RadioButton-label" v-if="!$slots.default && label">{{ label }}</span>
+    </div>
   </div>
 </template>
 
@@ -71,6 +74,9 @@ export default class RadioButton extends RadioButtonProps {
   &-container {
     display: flex;
     margin-top: 7px;
+  }
+  &-content {
+    padding-top: 3px;
   }
   &-input {
     display: none;
